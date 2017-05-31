@@ -1,11 +1,11 @@
 {
     "name": "mongogo",
     "displayName": "mongogo",
-    "description": "Encapsulating the mongo shell into vs code.",
+    "description": "Integrates mongo shell into vs code.",
     "version": "0.0.1",
     "publisher": "bagonaut",
     "engines": {
-        "vscode": "^1.11.0"
+        "vscode": "^1.12.0"
     },
     "categories": [
         "Other"
@@ -15,10 +15,12 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
+        "commands": [
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
