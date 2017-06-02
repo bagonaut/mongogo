@@ -13,8 +13,16 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "mongogo" is now active!');
-    var cp = require('child_process');
-    var path = require('path');
+    //var cp = require('child_process');
+    //var path = require('path');
+
+
+    // The command has been defined in the package.json file
+    // Now provide the implementation of the command with  registerCommand
+    // The commandId parameter must match the command field in package.json
+    let disposable = vscode.commands.registerCommand('extension.launchMongo', () => {
+        // The code you place here will be executed every time your command is executed
+
     var os = require('os');
     var fs = require('fs');
 
@@ -24,27 +32,17 @@ export function activate(context: vscode.ExtensionContext) {
 
     var args: string = "";
     var mongoLaunchString: string = mongoLocation + " " + args;
-    var launchRoot: string = tmpPath + "\\LaunchMongo.bat";
+    var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; /// multiple threads will overwrite.
 
     fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
 
-        //vscode.workspace.rootPath
-    
-    
     console.log(mongoLaunchString);
     var terminal = vscode.window.createTerminal("Mongo Shell", launchRoot, null )
     terminal.show();
-        //var writer = cp.spawn
+
     var foo = 1;
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
-
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+        vscode.window.showInformationMessage('Mongo launched: ' + mongoLaunchString);
     });
 
     context.subscriptions.push(disposable);
