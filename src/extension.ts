@@ -3,51 +3,76 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+var term0 = 0;
 
 var win32 = process.platform === 'win32';
 
+class MongoTerminal 
+{
+    private _mongoTerminal; // singleton pattern for now
+
+    public NewMongoTerminal()
+    {
+        if (!this._mongoTerminal) {
+
+            var os = require('os');
+            var fs = require('fs');
+    
+            var tmpPath: string = os.tmpdir();
+            var mongoLocation: string = "C:\\MongoDB\\Server\\3.2\\bin\\mongo.exe";
+            var args: string = "";
+            var mongoLaunchString: string = mongoLocation + " " + args;
+            var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; // per process bat. Can change config between launches
+            fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
+            console.log(mongoLaunchString);
+            this._mongoTerminal = vscode.window.createTerminal("Mongo Shell", launchRoot, null )
+            this._mongoTerminal.show();
+            vscode.window.showInformationMessage('Mongo launched: ' + mongoLaunchString);
+        }
+    }
+
+    dispose() {
+        this._mongoTerminal.dispose();
+    }
+}
+
+
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export function activate( context: vscode.ExtensionContext) {
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "mongogo" is now active!');
     //var cp = require('child_process');
     //var path = require('path');
+    let mongoTerminal = new MongoTerminal();
+    
 
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.launchMongo', () => {
+    let launchMongo = vscode.commands.registerCommand('extension.launchMongo', () => {
         // The code you place here will be executed every time your command is executed
 
-    var os = require('os');
-    var fs = require('fs');
-
-    var tmpPath: string = os.tmpdir();
-
-    var mongoLocation: string = "C:\\MongoDB\\Server\\3.2\\bin\\mongo.exe";
-
-    var args: string = "";
-    var mongoLaunchString: string = mongoLocation + " " + args;
-    var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; /// multiple threads will overwrite.
-
-    fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
-
-    console.log(mongoLaunchString);
-    var terminal = vscode.window.createTerminal("Mongo Shell", launchRoot, null )
-    terminal.show();
-
-    var foo = 1;
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Mongo launched: ' + mongoLaunchString);
+        var foo = 1;
+        mongoTerminal.NewMongoTerminal();
+       
     });
 
-    context.subscriptions.push(disposable);
+    let runMongo = vscode.commands.registerCommand('extension.runMongo', () => {
+    // The code you place here will be executed every time your command is executed
+
+    });
+
+    context.subscriptions.push(mongoTerminal);
+    context.subscriptions.push(launchMongo);
+    context.subscriptions.push(runMongo);
 }
 
+//exports.TerminalStack = TerminalStack;
 // this method is called when your extension is deactivated
 export function deactivate() {
 }
