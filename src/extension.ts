@@ -19,9 +19,13 @@ class MongoTerminal
             var fs = require('fs');
     
             var tmpPath: string = os.tmpdir();
-            var mongoLocation: string = "C:\\MongoDB\\Server\\3.2\\bin\\mongo.exe";
+            var configSettings = vscode.workspace.getConfiguration('mongoShell');
+
+            var mongoLocation: string = configSettings.path;
             var args: string = ""; // Compose args string from settings in config file.
-            var mongoLaunchString: string = mongoLocation + " " + args;
+            if (configSettings.host != "" ) {args += " --host " +configSettings.host };
+            if (configSettings.port != "" ) {args += " --port " +configSettings.port };
+            var mongoLaunchString = mongoLocation + " " + args;
             var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; // per process bat. Can change config between launches
             fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
             console.log(mongoLaunchString);
