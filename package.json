@@ -2,7 +2,7 @@
     "name": "mongogo",
     "displayName": "mongogo",
     "description": "Integrates mongo shell into vs code.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "bagonaut",
     "engines": {
         "vscode": "^1.12.0"
@@ -31,7 +31,7 @@
         "onCommand:extension.launchMongo",
         "onLanguage:javascript"
     ],
-    "main": "./out/src/extension",   
+    "main": "./out/src/extension",
     "contributes": {
         "commands": [
             {
@@ -44,50 +44,51 @@
             }
         ],
         "menus": {
-            "editor/context": [{
-                "when": "editorHasSelection",
-                "command": "extension.runMongo",
-                "group": "navigation"
-            }]
+            "editor/context": [
+                {
+                    "when": "editorHasSelection",
+                    "command": "extension.runMongo",
+                    "group": "navigation"
+                }
+            ]
         },
-        "configuration" : {
+        "configuration": {
             "type": "object",
             "title": "Mongo Shell Configuration",
             "properties": {
-                "mongoShell.host":{
+                "mongoShell.host": {
                     "type": "string",
                     "default": "",
                     "description": "server to connect to"
-                },        
-                "mongoShell.port":{
+                },
+                "mongoShell.port": {
                     "type": "string",
                     "default": "",
                     "description": "port to connect to"
                 },
-                "mongoShell.verbose":{
+                "mongoShell.verbose": {
                     "type": "bool",
                     "default": false,
                     "description": "increase verbosity"
                 },
-                "mongoShell.quiet":{
+                "mongoShell.quiet": {
                     "type": "bool",
                     "default": false,
                     "description": "be less chatty"
-                },        
-                "mongoShell.username":{
+                },
+                "mongoShell.username": {
                     "type": "string",
                     "default": "",
                     "description": "username for authentication"
-                },        
-                "mongoShell.path":{
+                },
+                "mongoShell.path": {
                     "type": "string",
                     "default": "C:\\MongoDB\\Server\\3.2\\bin\\mongo.exe",
                     "description": "path to mongo shell executable"
                 }
             }
-        }            
+        }
     },
-    
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
