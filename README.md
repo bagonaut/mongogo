@@ -4,7 +4,7 @@ This will allow you to configure and run the mongo shell inside of Visual Studio
 
 ## Features
 
-Stuff and things
+This adds a context menu for .js files that will allow you to run the selected text in the mongo shell. Running the mongo shell will also give you a fully interactive mongo shell terminal in the vs code window.
 
 Animated gifs go here.
 
