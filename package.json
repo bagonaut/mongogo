@@ -22,9 +22,16 @@
             },
             {
                 "command": "extension.runMongo",
-                "title": "Run Mongo Code"
+                "title": "Run Selection in Mongo"
             }
         ],
+        "menus": {
+            "editor/context": [{
+                "when": "editorHasSelection",
+                "command": "extension.runMongo",
+                "group": "navigation"
+            }]
+        },
         "configuration" : {
             "type": "object",
             "title": "Mongo Shell Configuration",

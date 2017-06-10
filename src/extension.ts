@@ -3,14 +3,23 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-var term0 = 0;
 
-var win32 = process.platform === 'win32';
 
 class MongoTerminal 
 {
     private _mongoTerminal; // singleton pattern for now
 
+    public runMongoCode () {
+        var foor = 1;
+        // send text here
+        //var pruner = new RegExp("\n\n");        
+        // grab terminal, take active editor, take selected text, run through regex, and send to toermianl
+        var targetChunk = vscode.window.activeTextEditor.selection;
+        // selection is the range, pass to getText to get text
+        var targetText = vscode.window.activeTextEditor.document.getText(targetChunk);
+        this._mongoTerminal.sendText(targetText);
+        var footr = 1;
+}
     public NewMongoTerminal()
     {
         if (!this._mongoTerminal) {
@@ -50,7 +59,7 @@ export function activate( context: vscode.ExtensionContext) {
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "mongogo" is now active!');
     //var cp = require('child_process');
-    //var path = require('path');
+    //var path = require('path'); // will has to use path for multiplatform
     let mongoTerminal = new MongoTerminal();
     
 
@@ -61,13 +70,19 @@ export function activate( context: vscode.ExtensionContext) {
     let launchMongo = vscode.commands.registerCommand('extension.launchMongo', () => {
         // The code you place here will be executed every time your command is executed
 
-        var foo = 1;
+        var foob = 1;
         mongoTerminal.NewMongoTerminal();
        
     });
 
     let runMongo = vscode.commands.registerCommand('extension.runMongo', () => {
-     // grab terminal, take active editor, take selected text, run through regex, and send to toermianl
+        
+        var foot = 1;
+        if (mongoTerminal == null){
+            mongoTerminal.NewMongoTerminal(); // still have to activate
+        }
+
+        mongoTerminal.runMongoCode();
 
     });
 
