@@ -20,7 +20,7 @@ class MongoTerminal
     
             var tmpPath: string = os.tmpdir();
             var mongoLocation: string = "C:\\MongoDB\\Server\\3.2\\bin\\mongo.exe";
-            var args: string = "";
+            var args: string = ""; // Compose args string from settings in config file.
             var mongoLaunchString: string = mongoLocation + " " + args;
             var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; // per process bat. Can change config between launches
             fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
@@ -63,7 +63,7 @@ export function activate( context: vscode.ExtensionContext) {
     });
 
     let runMongo = vscode.commands.registerCommand('extension.runMongo', () => {
-    // The code you place here will be executed every time your command is executed
+     // grab terminal, take active editor, take selected text, run through regex, and send to toermianl
 
     });
 

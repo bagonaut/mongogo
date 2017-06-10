@@ -13,15 +13,36 @@
     "activationEvents": [
         "onCommand:extension.launchMongo"
     ],
-    "main": "./out/src/extension",
+    "main": "./out/src/extension",   
     "contributes": {
         "commands": [
             {
                 "command": "extension.launchMongo",
                 "title": "Mongo Shell"
+            },
+            {
+                "command": "extension.runMongo",
+                "title": "Run Mongo Code"
             }
-        ]
+        ],
+        "configuration" : {
+            "type": "object",
+            "title": "Mongo Shell Configuration",
+            "properties": {
+                "mongoShell.host":{
+                    "type": "string",
+                    "default": "",
+                    "description": "server to connect to"
+                },        
+                "mongoShell.port":{
+                    "type": "string",
+                    "default": "",
+                    "description": "port to connect to"
+                }
+            }
+        }            
     },
+    
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",

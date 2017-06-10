@@ -1,10 +1,10 @@
 # mongogo README
 
-This is the README for your extension "mongogo". After writing up a brief description, we recommend including the following sections.
+This will allow you to configure and run the mongo shell inside of Visual Studio Code on Windows. It will also allow you to send code you have holighted directly to the shell.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Stuff and things
 
 For example if there is an image subfolder under your extension project workspace:
 
