@@ -23,7 +23,7 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Only works on Windows.
+Only works on Windows. Includes workaround vscode bug 8429. https://github.com/Microsoft/vscode/issues/8429
 
 ## Release Notes
 
@@ -33,7 +33,7 @@ Happy path code complete
 
 Initial release of mongogo
 
-### 0.0.2
+### 0.0.5
 
 Added Documentation.
 
