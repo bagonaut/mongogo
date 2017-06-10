@@ -10,9 +10,8 @@ class MongoTerminal
     private _mongoTerminal; // singleton pattern for now
 
     public runMongoCode () {
-        var foor = 1;
         // send text here
-        //var pruner = new RegExp("\n\n");        
+        //var pruner = new RegExp("\n\n");    Regex not needed in this version    
         // grab terminal, take active editor, take selected text, run through regex, and send to toermianl
         var targetChunk = vscode.window.activeTextEditor.selection;
         // selection is the range, pass to getText to get text
@@ -78,9 +77,9 @@ export function activate( context: vscode.ExtensionContext) {
     let runMongo = vscode.commands.registerCommand('extension.runMongo', () => {
         
         var foot = 1;
-        if (mongoTerminal == null){
-            mongoTerminal.NewMongoTerminal(); // still have to activate
-        }
+
+        mongoTerminal.NewMongoTerminal(); // still have to activate
+
 
         mongoTerminal.runMongoCode();
 

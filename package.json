@@ -11,7 +11,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.launchMongo"
+        "onCommand:extension.launchMongo",
+        "onLanguage:javascript"
     ],
     "main": "./out/src/extension",   
     "contributes": {
