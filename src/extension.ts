@@ -39,7 +39,7 @@ class MongoTerminal
             console.log(mongoLaunchString);
             this._mongoTerminal = vscode.window.createTerminal("Mongo Shell", launchRoot, null )
             this._mongoTerminal.show();
-            vscode.window.showInformationMessage('Mongo launched: ' + mongoLaunchString);
+            //vscode.window.showInformationMessage('Mongo launched: ' + mongoLaunchString);
         }
     }
 
@@ -56,7 +56,7 @@ export function activate( context: vscode.ExtensionContext) {
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "mongogo" is now active!');
+    //console.log('Congratulations, your extension "mongogo" is now active!');
     //var cp = require('child_process');
     //var path = require('path'); // will has to use path for multiplatform
     let mongoTerminal = new MongoTerminal();
@@ -64,22 +64,17 @@ export function activate( context: vscode.ExtensionContext) {
 
 
     // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let launchMongo = vscode.commands.registerCommand('extension.launchMongo', () => {
-        // The code you place here will be executed every time your command is executed
 
-        var foob = 1;
+    let launchMongo = vscode.commands.registerCommand('extension.launchMongo', () => {
+
+        // Command for launching  mongo from shell
         mongoTerminal.NewMongoTerminal();
        
     });
 
     let runMongo = vscode.commands.registerCommand('extension.runMongo', () => {
         
-        var foot = 1;
-
-        mongoTerminal.NewMongoTerminal(); // still have to activate
-
+        mongoTerminal.NewMongoTerminal(); // will follow singleton
 
         mongoTerminal.runMongoCode();
 
