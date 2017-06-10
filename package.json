@@ -8,8 +8,25 @@
         "vscode": "^1.12.0"
     },
     "categories": [
-        "Other"
+        "Other",
+        "Languages"
     ],
+    "contributors": [
+        "Randy Castleberry"
+    ],
+    "os": [
+        "Windows"
+    ],
+    "icon": "images/mongogo_leaf.png",
+    "bugs": {
+        "url": "https://github.com/bagonaut/mongogo/issues"
+    },
+    "readme": "readme.MD",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bagonaut/mongogo.git"
+    },
+    "license": "MIT",
     "activationEvents": [
         "onCommand:extension.launchMongo",
         "onLanguage:javascript"
