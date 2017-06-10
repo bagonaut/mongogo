@@ -38,7 +38,22 @@
                     "type": "string",
                     "default": "",
                     "description": "port to connect to"
-                }
+                },
+                "mongoShell.verbose":{
+                    "type": "bool",
+                    "default": false,
+                    "description": "increase verbosity"
+                },
+                "mongoShell.quiet":{
+                    "type": "bool",
+                    "default": false,
+                    "description": "be less chatty"
+                },        
+                "mongoShell.username":{
+                    "type": "string",
+                    "default": "",
+                    "description": "username for authentication"
+                },
             }
         }            
     },
