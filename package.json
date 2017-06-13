@@ -2,7 +2,7 @@
     "name": "mongogo",
     "displayName": "mongogo",
     "description": "Integrates mongo shell into vs code.",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "publisher": "bagonaut",
     "engines": {
         "vscode": "^1.12.0"
