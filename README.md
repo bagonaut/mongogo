@@ -24,7 +24,7 @@ This extension contributes the following settings:
 * `mongoShell.verbose`: --verbose parameter for mongo shell (optional)
 * `mongoShell.quiet`: --quiet parameter for mongo shell (optional)
 
-# If people are comfortable with addind login information that would be logged to a temp file in user space, I can do that. Drop a comment on my github.
+# If people are comfortable with adding login information that would be logged to a temp file in user space, I can do that. Drop a comment on my github.
 
 ## Known Issues
 
@@ -42,7 +42,7 @@ Initial release of mongogo
 
 Added Documentation.
 
-### 0.0.7
+### 0.0.8
 Fixed Typos, added some cmmand line args.
 -----------------------------------------------------------------------------------------------------------
 
