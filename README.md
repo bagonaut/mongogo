@@ -45,8 +45,9 @@ Initial release of mongogo
 
 Added Documentation.
 
-### 0.0.9
-Fixed Typos, added some cmmand line args.
+### 0.0.10
+Fixed Typos, added some command line args.
+
 -----------------------------------------------------------------------------------------------------------
 
 
