@@ -1,6 +1,6 @@
 # mongogo README
 
-This will allow you to configure and run the mongo shell inside of Visual Studio Code on Windows. It will also allow you to send code you have holighted directly to the shell.
+This will allow you to configure and run the mongo shell inside of Visual Studio Code on Windows. It will also allow you to send code you have hilighted directly to the shell.
 
 ## Features
 
@@ -11,16 +11,20 @@ This adds a context menu for .js files that will allow you to run the selected t
 
 ## Requirements
 
-This extension requires that you have the mongo shell installed somehwere
+This extension requires that you have the mongo shell installed somehwere, and have your workspace configured to point at the executable.
 
 ## Extension Settings
 
 
 This extension contributes the following settings:
 
-* `mongoShell.path`: Escaped path to mongo.exe shell
-* `mongoShell.host`: --host parameter for mongo shell
-* `mongoShell.port`: --port parameter for mongo shell
+* `mongoShell.path`: Escaped path to mongo.exe shell [MANDATORY]
+* `mongoShell.host`: --host parameter for mongo shell (optional)
+* `mongoShell.port`: --port parameter for mongo shell (optional)
+* `mongoShell.verbose`: --verbose parameter for mongo shell (optional)
+* `mongoShell.quiet`: --quiet parameter for mongo shell (optional)
+
+# If people are comfortable with addind login information that would be logged to a temp file in user space, I can do that. Drop a comment on my github.
 
 ## Known Issues
 
@@ -28,7 +32,7 @@ Only works on Windows. Includes workaround vscode bug 8429. https://github.com/M
 
 ## Release Notes
 
-Happy path code complete
+Happy path code complete. 
 
 ### 0.0.1
 
@@ -38,6 +42,8 @@ Initial release of mongogo
 
 Added Documentation.
 
+### 0.0.7
+Fixed Typos, added some cmmand line args.
 -----------------------------------------------------------------------------------------------------------
 
 

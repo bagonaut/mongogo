@@ -31,8 +31,10 @@ class MongoTerminal
 
             var mongoLocation: string = configSettings.path;
             var args: string = ""; // Compose args string from settings in config file.
-            if (configSettings.host != "" ) {args += " --host " +configSettings.host };
-            if (configSettings.port != "" ) {args += " --port " +configSettings.port };
+            if (configSettings.host != "" ) {args += " --host " + configSettings.host };
+            if (configSettings.port != "" ) {args += " --port " + configSettings.port };
+            if (configSettings.verbose) {args += " --verbose"};
+            if (configSettings.quiet) {args += " --quiet"};
             var mongoLaunchString = mongoLocation + " " + args;
             var launchRoot: string = tmpPath + "\\LaunchMongo"+ process.pid.toString() +".bat"; // per process bat. Can change config between launches
             fs.writeFileSync(launchRoot, mongoLaunchString, 'utf8');
