@@ -30,6 +30,9 @@ This extension contributes the following settings:
 
 Only works on Windows. Includes workaround vscode bug 8429. https://github.com/Microsoft/vscode/issues/8429
 
+Use Issues page to communicate any requests and/or issues.
+https://github.com/bagonaut/mongogo/issues 
+
 ## Release Notes
 
 Happy path code complete. 
@@ -42,7 +45,7 @@ Initial release of mongogo
 
 Added Documentation.
 
-### 0.0.8
+### 0.0.9
 Fixed Typos, added some cmmand line args.
 -----------------------------------------------------------------------------------------------------------
 
