@@ -16,6 +16,7 @@ class MongoTerminal
         var targetChunk = vscode.window.activeTextEditor.selection;
         // selection is the range, pass to getText to get text
         var targetText = vscode.window.activeTextEditor.document.getText(targetChunk);
+        this._mongoTerminal.show();
         this._mongoTerminal.sendText(targetText);
         var footr = 1;
 }
@@ -47,6 +48,7 @@ class MongoTerminal
 
     dispose() {
         this._mongoTerminal.dispose();
+        this._mongoTerminal = null;
     }
 }
 
@@ -63,7 +65,9 @@ export function activate( context: vscode.ExtensionContext) {
     //var path = require('path'); // will has to use path for multiplatform
     let mongoTerminal = new MongoTerminal();
     
-
+    vscode.window.onDidCloseTerminal(function(event) {
+        mongoTerminal.dispose(); 
+    });
 
     // The command has been defined in the package.json file
 
