@@ -11,7 +11,7 @@ This adds a context menu for .js files that will allow you to run the selected t
 
 ## Requirements
 
-This extension requires that you have the mongo shell installed somehwere, and have your workspace configured to point at the executable.
+This extension requires that you have the mongo shell installed somehwere, and have your workspace configured to point at the executable. Also, this means that you need to have a running mongod instance to point the client at. Otherwise, the client will terminate, and the shell will close.
 
 ## Extension Settings
 
