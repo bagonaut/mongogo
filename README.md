@@ -48,6 +48,9 @@ Added Documentation.
 ### 0.0.10
 Fixed Typos, added some command line args.
 
+### 0.1.2
+Fixed the issue with the console not handling closing properly. It still gets in a messed up state if mongo.exe doesn't connect to a mongod instance.
+
 -----------------------------------------------------------------------------------------------------------
 
 
